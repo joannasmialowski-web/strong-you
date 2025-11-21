@@ -1,0 +1,10 @@
+<div class="stats">
+  <div
+    class="stat"
+    *ngFor="let stat of stats; trackBy: trackByIndex"
+  >
+    <span class="stat__value">{{ stat.value }}</span>
+    <span class="stat__label">{{ stat.label }}</span>
+  </div>
+</div>
+

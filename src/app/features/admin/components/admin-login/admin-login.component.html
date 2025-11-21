@@ -1,0 +1,38 @@
+<section class="admin-login">
+  <mat-card>
+    <h1>Panel administratora</h1>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <mat-form-field appearance="fill">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email" type="email" />
+        <mat-error *ngIf="form.get('email')?.hasError('required')">
+          Wpisz e-mail.
+        </mat-error>
+        <mat-error *ngIf="form.get('email')?.hasError('email')">
+          Niepoprawny adres.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Hasło</mat-label>
+        <input matInput formControlName="password" type="password" />
+        <mat-error *ngIf="form.get('password')?.hasError('required')">
+          Wpisz hasło.
+        </mat-error>
+      </mat-form-field>
+
+      <p class="error" *ngIf="errorMessage()">
+        {{ errorMessage() }}
+      </p>
+
+      <button
+        mat-flat-button
+        class="pill-button pill-button--primary"
+        type="submit"
+      >
+        Zaloguj
+      </button>
+    </form>
+  </mat-card>
+</section>
+

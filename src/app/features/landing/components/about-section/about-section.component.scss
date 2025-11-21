@@ -1,0 +1,24 @@
+.about {
+  max-width: 720px;
+}
+
+.about__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.about h2 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  letter-spacing: 0.08em;
+}
+
+.about__intro {
+  color: var(--color-text-subtle);
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+

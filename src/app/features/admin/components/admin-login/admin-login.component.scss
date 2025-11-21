@@ -1,0 +1,31 @@
+.admin-login {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+}
+
+mat-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  width: min(420px, 100%);
+  padding: 2rem;
+}
+
+h1 {
+  margin-top: 0;
+  letter-spacing: 0.08em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.error {
+  color: var(--color-error);
+  margin: 0;
+}
+

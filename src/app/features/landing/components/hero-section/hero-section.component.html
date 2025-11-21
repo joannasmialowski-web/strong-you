@@ -1,0 +1,41 @@
+<div class="hero">
+<!--  <div-->
+<!--    class="hero__visual"-->
+<!--    [style.background-image]="'url(' + content.imageUrl + ')'"-->
+<!--    role="img"-->
+<!--    aria-label="Trener podczas pracy"-->
+<!--  ></div>-->
+  <div class="hero__visual">
+    <img
+      [src]="content.imageUrl"
+      alt="Trener podczas pracy"
+      loading="lazy"
+    />
+  </div>
+  <div class="hero__copy">
+    <p class="eyebrow">Trener personalny premium</p>
+    <h1>{{ content.title }}</h1>
+    <p class="lead">
+      {{ content.subtitle }}
+    </p>
+    <div class="hero__actions">
+      <button
+        mat-flat-button
+        class="pill-button pill-button--primary"
+        type="button"
+        (click)="primaryCta.emit()"
+      >
+        {{ content.primaryCtaLabel }}
+      </button>
+      <button
+        mat-stroked-button
+        class="pill-button pill-button--secondary"
+        type="button"
+        (click)="secondaryCta.emit()"
+      >
+        {{ content.secondaryCtaLabel }}
+      </button>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,156 @@
+<section class="content-editor">
+  <form [formGroup]="form" (ngSubmit)="submit()" class="editor-grid">
+    <mat-card>
+      <h2>Sekcja Hero</h2>
+      <div formGroupName="hero" class="field-grid">
+        <mat-form-field appearance="fill">
+          <mat-label>Tytuł</mat-label>
+          <input matInput formControlName="title" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Lead</mat-label>
+          <textarea matInput rows="3" formControlName="subtitle"></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Primary CTA</mat-label>
+          <input matInput formControlName="primaryCtaLabel" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Secondary CTA</mat-label>
+          <input matInput formControlName="secondaryCtaLabel" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>URL obrazka</mat-label>
+          <input matInput formControlName="imageUrl" />
+        </mat-form-field>
+      </div>
+    </mat-card>
+
+    <mat-card>
+      <h2>Opis działalności</h2>
+      <div formGroupName="about" class="field-grid">
+        <mat-form-field appearance="fill">
+          <mat-label>Nagłówek</mat-label>
+          <input matInput formControlName="title" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Opis</mat-label>
+          <textarea matInput rows="3" formControlName="intro"></textarea>
+        </mat-form-field>
+      </div>
+    </mat-card>
+
+    <mat-card>
+      <div class="card-header">
+        <h2>Kafle usług</h2>
+        <button
+          mat-stroked-button
+          type="button"
+          (click)="addTile()"
+        >
+          <mat-icon>add</mat-icon>
+          Dodaj kafel
+        </button>
+      </div>
+      <div formArrayName="tiles" class="dynamic-grid">
+        <div
+          class="dynamic-item"
+          *ngFor="let tile of tiles.controls; let i = index"
+          [formGroupName]="i"
+        >
+          <mat-form-field appearance="fill">
+            <mat-label>Tytuł</mat-label>
+            <input matInput formControlName="title" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Opis</mat-label>
+            <textarea matInput rows="2" formControlName="description"></textarea>
+          </mat-form-field>
+          <button
+            mat-icon-button
+            type="button"
+            aria-label="Usuń"
+            (click)="removeTile(i)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-card>
+
+    <mat-card>
+      <div class="card-header">
+        <h2>Statystyki</h2>
+        <button
+          mat-stroked-button
+          type="button"
+          (click)="addStat()"
+        >
+          <mat-icon>add</mat-icon>
+          Dodaj statystykę
+        </button>
+      </div>
+      <div formArrayName="stats" class="dynamic-grid">
+        <div
+          class="dynamic-item"
+          *ngFor="let stat of stats.controls; let i = index"
+          [formGroupName]="i"
+        >
+          <mat-form-field appearance="fill">
+            <mat-label>Wartość</mat-label>
+            <input matInput formControlName="value" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Etykieta</mat-label>
+            <input matInput formControlName="label" />
+          </mat-form-field>
+          <button
+            mat-icon-button
+            type="button"
+            aria-label="Usuń"
+            (click)="removeStat(i)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-card>
+
+    <mat-card>
+      <h2>Dane kontaktowe</h2>
+      <div formGroupName="contact" class="field-grid">
+        <mat-form-field appearance="fill">
+          <mat-label>E-mail</mat-label>
+          <input matInput formControlName="email" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Telefon</mat-label>
+          <input matInput formControlName="phone" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Lokalizacja</mat-label>
+          <input matInput formControlName="location" />
+        </mat-form-field>
+      </div>
+    </mat-card>
+
+    <div class="form-actions">
+      <button
+        mat-flat-button
+        class="pill-button pill-button--primary"
+        type="submit"
+      >
+        Zapisz
+      </button>
+      <button
+        mat-stroked-button
+        class="pill-button pill-button--secondary"
+        type="button"
+        (click)="reset()"
+      >
+        Przywróć domyślne
+      </button>
+    </div>
+  </form>
+</section>
+
