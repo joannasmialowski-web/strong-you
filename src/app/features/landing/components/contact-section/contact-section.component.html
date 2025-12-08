@@ -1,0 +1,68 @@
+<div class="contact">
+  <div class="contact__intro">
+    <h2>Umów konsultację</h2>
+    <p class="contact__text">
+      Opowiedz krótko o swoim celu, a w odpowiedzi dostaniesz
+      propozycję współpracy i termin pierwszej konsultacji.
+    </p>
+
+    <div class="contact__details">
+      <div class="detail">
+        <span class="detail__label">E-mail</span>
+        <a [href]="mailHref()">{{ contact.email }}</a>
+      </div>
+      <div class="detail">
+        <span class="detail__label">Telefon</span>
+        <a [href]="phoneHref()">{{ contact.phone }}</a>
+      </div>
+      <div class="detail">
+        <span class="detail__label">Lokalizacja</span>
+        <span>{{ contact.location }}</span>
+      </div>
+    </div>
+  </div>
+
+  <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Imię</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error *ngIf="hasError('name', 'required')">
+        Imię jest wymagane.
+      </mat-error>
+      <mat-error *ngIf="hasError('name', 'maxlength')">
+        Maksymalnie 60 znaków.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>E-mail</mat-label>
+      <input matInput formControlName="email" type="email" />
+      <mat-error *ngIf="hasError('email', 'required')">
+        E-mail jest wymagany.
+      </mat-error>
+      <mat-error *ngIf="hasError('email', 'email')">
+        Podaj poprawny adres.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Wiadomość</mat-label>
+      <textarea matInput rows="5" formControlName="message"></textarea>
+      <mat-error *ngIf="hasError('message', 'required')">
+        Wiadomość jest wymagana.
+      </mat-error>
+      <mat-error *ngIf="hasError('message', 'minlength')">
+        Minimum 10 znaków.
+      </mat-error>
+    </mat-form-field>
+
+    <button
+      mat-flat-button
+      class="pill-button pill-button--primary contact__submit"
+      type="submit"
+    >
+      Wyślij
+    </button>
+  </form>
+</div>
+

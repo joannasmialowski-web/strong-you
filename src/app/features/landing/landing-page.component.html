@@ -1,0 +1,40 @@
+<ng-container *ngIf="content$ | async as content">
+  <section class="section hero-section" id="hero">
+    <div class="section__inner section__inner--hero">
+      <app-hero-section
+        [content]="content.hero"
+        (primaryCta)="handlePrimaryCta()"
+        (secondaryCta)="handleSecondaryCta()"
+      />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__inner">
+      <app-about-section [content]="content.about" />
+    </div>
+  </section>
+
+  <section class="section section--cards">
+    <div class="section__inner">
+      <app-tiles-section [tiles]="content.tiles" />
+    </div>
+  </section>
+
+  <section class="section section--stats">
+    <div class="section__inner">
+      <app-stats-section [stats]="content.stats" />
+    </div>
+  </section>
+
+  <section
+    class="section section--contact"
+    id="kontakt"
+    #contactSection
+  >
+    <div class="section__inner">
+      <app-contact-section [contact]="content.contact" />
+    </div>
+  </section>
+</ng-container>
+

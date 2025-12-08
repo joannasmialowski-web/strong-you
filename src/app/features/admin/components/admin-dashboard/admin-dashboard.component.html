@@ -1,0 +1,25 @@
+<section class="admin-dashboard">
+  <mat-card>
+    <h1>Witaj, Admin</h1>
+    <p>Zarządzaj treściami wizytówki i aktualizuj dane kontaktowe.</p>
+
+    <div class="actions">
+      <a
+        mat-flat-button
+        class="pill-button pill-button--primary"
+        routerLink="/admin/content"
+      >
+        Edytuj treści strony
+      </a>
+      <button
+        mat-stroked-button
+        class="pill-button pill-button--secondary"
+        type="button"
+        (click)="logout()"
+      >
+        Wyloguj
+      </button>
+    </div>
+  </mat-card>
+</section>
+
