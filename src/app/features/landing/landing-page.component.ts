@@ -20,19 +20,18 @@ import {
 } from './components/contact-section/contact-section.component';
 
 @Component({
-  selector: 'app-landing-page',
-  standalone: true,
-  imports: [
-    NgIf,
-    AsyncPipe,
-    HeroSectionComponent,
-    AboutSectionComponent,
-    TilesSectionComponent,
-    StatsSectionComponent,
-    ContactSectionComponent
-  ],
-  templateUrl: './landing-page.component.html',
-  styleUrl: './landing-page.component.scss'
+    selector: 'app-landing-page',
+    imports: [
+        NgIf,
+        AsyncPipe,
+        HeroSectionComponent,
+        AboutSectionComponent,
+        TilesSectionComponent,
+        StatsSectionComponent,
+        ContactSectionComponent
+    ],
+    templateUrl: './landing-page.component.html',
+    styleUrl: './landing-page.component.scss'
 })
 export class LandingPageComponent {
   @ViewChild('contactSection') contactSection?: ElementRef<HTMLElement>;

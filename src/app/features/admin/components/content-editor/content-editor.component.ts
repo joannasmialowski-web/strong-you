@@ -36,20 +36,19 @@ type StatGroup = FormGroup<{
 }>;
 
 @Component({
-  selector: 'app-content-editor',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    MatSnackBarModule,
-    NgFor
-  ],
-  templateUrl: './content-editor.component.html',
-  styleUrl: './content-editor.component.scss'
+    selector: 'app-content-editor',
+    imports: [
+        ReactiveFormsModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule,
+        MatSnackBarModule,
+        NgFor
+    ],
+    templateUrl: './content-editor.component.html',
+    styleUrl: './content-editor.component.scss'
 })
 export class ContentEditorComponent implements OnDestroy {
   private readonly fb = inject(FormBuilder);

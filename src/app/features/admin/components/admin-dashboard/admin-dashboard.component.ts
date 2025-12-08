@@ -6,11 +6,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from '../../../../core/services/auth.service';
 
 @Component({
-  selector: 'app-admin-dashboard',
-  standalone: true,
-  imports: [MatCardModule, MatButtonModule, RouterLink],
-  templateUrl: './admin-dashboard.component.html',
-  styleUrl: './admin-dashboard.component.scss'
+    selector: 'app-admin-dashboard',
+    imports: [MatCardModule, MatButtonModule, RouterLink],
+    templateUrl: './admin-dashboard.component.html',
+    styleUrl: './admin-dashboard.component.scss'
 })
 export class AdminDashboardComponent {
   constructor(

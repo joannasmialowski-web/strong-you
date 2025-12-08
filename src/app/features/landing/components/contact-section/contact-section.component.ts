@@ -13,19 +13,17 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { ContactContent } from '../../../../core/models/content.model';
 
 @Component({
-  selector: 'app-contact-section',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSnackBarModule,
-    NgFor,
-    NgIf
-  ],
-  templateUrl: './contact-section.component.html',
-  styleUrl: './contact-section.component.scss'
+    selector: 'app-contact-section',
+    imports: [
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatSnackBarModule,
+        NgIf
+    ],
+    templateUrl: './contact-section.component.html',
+    styleUrl: './contact-section.component.scss'
 })
 export class ContactSectionComponent {
   @Input({ required: true }) contact!: ContactContent;

@@ -7,10 +7,9 @@ import {
 } from '../landing/components/contact-section/contact-section.component';
 
 @Component({
-  selector: 'app-contact-page',
-  standalone: true,
-  imports: [NgIf, AsyncPipe, ContactSectionComponent],
-  template: `
+    selector: 'app-contact-page',
+    imports: [NgIf, AsyncPipe, ContactSectionComponent],
+    template: `
     <section class="info-page">
       <div class="section__inner" *ngIf="content$ | async as content">
         <p class="eyebrow">Kontakt</p>
@@ -19,8 +18,8 @@ import {
       </div>
     </section>
   `,
-  styles: [
-    `
+    styles: [
+        `
       .info-page {
         padding: 6rem 0;
       }
@@ -31,7 +30,7 @@ import {
         margin-bottom: 2rem;
       }
     `
-  ]
+    ]
 })
 export class ContactPageComponent {
   private readonly contentService = inject(ContentService);

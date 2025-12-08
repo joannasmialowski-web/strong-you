@@ -22,10 +22,9 @@ const STEPS = [
 ];
 
 @Component({
-  selector: 'app-book-training-page',
-  standalone: true,
-  imports: [NgIf, AsyncPipe, NgFor, ContactSectionComponent],
-  template: `
+    selector: 'app-book-training-page',
+    imports: [NgIf, AsyncPipe, NgFor, ContactSectionComponent],
+    template: `
     <section class="info-page">
       <div class="section__inner" *ngIf="content$ | async as content">
         <p class="eyebrow">Umów trening</p>
@@ -43,8 +42,8 @@ const STEPS = [
       </div>
     </section>
   `,
-  styles: [
-    `
+    styles: [
+        `
       .info-page {
         padding: 6rem 0;
       }
@@ -90,7 +89,7 @@ const STEPS = [
         color: var(--color-text-subtle);
       }
     `
-  ]
+    ]
 })
 export class BookTrainingPageComponent {
   private readonly contentService = inject(ContentService);

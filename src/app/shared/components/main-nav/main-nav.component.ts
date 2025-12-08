@@ -14,21 +14,20 @@ type NavItem = {
 };
 
 @Component({
-  selector: 'app-main-nav',
-  standalone: true,
-  imports: [
-    NgFor,
-    RouterLink,
-    RouterLinkActive,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatListModule,
-    NgOptimizedImage
-  ],
-  templateUrl: './main-nav.component.html',
-  styleUrl: './main-nav.component.scss'
+    selector: 'app-main-nav',
+    imports: [
+        NgFor,
+        RouterLink,
+        RouterLinkActive,
+        MatToolbarModule,
+        MatButtonModule,
+        MatIconModule,
+        MatSidenavModule,
+        MatListModule,
+        NgOptimizedImage
+    ],
+    templateUrl: './main-nav.component.html',
+    styleUrl: './main-nav.component.scss'
 })
 export class MainNavComponent {
   readonly navItems: NavItem[] = [
