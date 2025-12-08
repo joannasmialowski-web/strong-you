@@ -47,34 +47,35 @@
           mat-stroked-button
           type="button"
           (click)="addTile()"
-        >
+          >
           <mat-icon>add</mat-icon>
           Dodaj kafel
         </button>
       </div>
       <div formArrayName="tiles" class="dynamic-grid">
-        <div
-          class="dynamic-item"
-          *ngFor="let tile of tiles.controls; let i = index"
-          [formGroupName]="i"
-        >
-          <mat-form-field appearance="fill">
-            <mat-label>Tytuł</mat-label>
-            <input matInput formControlName="title" />
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Opis</mat-label>
-            <textarea matInput rows="2" formControlName="description"></textarea>
-          </mat-form-field>
-          <button
-            mat-icon-button
-            type="button"
-            aria-label="Usuń"
-            (click)="removeTile(i)"
-          >
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
+        @for (tile of tiles.controls; track tile; let i = $index) {
+          <div
+            class="dynamic-item"
+            [formGroupName]="i"
+            >
+            <mat-form-field appearance="fill">
+              <mat-label>Tytuł</mat-label>
+              <input matInput formControlName="title" />
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Opis</mat-label>
+              <textarea matInput rows="2" formControlName="description"></textarea>
+            </mat-form-field>
+            <button
+              mat-icon-button
+              type="button"
+              aria-label="Usuń"
+              (click)="removeTile(i)"
+              >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        }
       </div>
     </mat-card>
 
@@ -85,34 +86,35 @@
           mat-stroked-button
           type="button"
           (click)="addStat()"
-        >
+          >
           <mat-icon>add</mat-icon>
           Dodaj statystykę
         </button>
       </div>
       <div formArrayName="stats" class="dynamic-grid">
-        <div
-          class="dynamic-item"
-          *ngFor="let stat of stats.controls; let i = index"
-          [formGroupName]="i"
-        >
-          <mat-form-field appearance="fill">
-            <mat-label>Wartość</mat-label>
-            <input matInput formControlName="value" />
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Etykieta</mat-label>
-            <input matInput formControlName="label" />
-          </mat-form-field>
-          <button
-            mat-icon-button
-            type="button"
-            aria-label="Usuń"
-            (click)="removeStat(i)"
-          >
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
+        @for (stat of stats.controls; track stat; let i = $index) {
+          <div
+            class="dynamic-item"
+            [formGroupName]="i"
+            >
+            <mat-form-field appearance="fill">
+              <mat-label>Wartość</mat-label>
+              <input matInput formControlName="value" />
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Etykieta</mat-label>
+              <input matInput formControlName="label" />
+            </mat-form-field>
+            <button
+              mat-icon-button
+              type="button"
+              aria-label="Usuń"
+              (click)="removeStat(i)"
+              >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        }
       </div>
     </mat-card>
 
@@ -139,7 +141,7 @@
         mat-flat-button
         class="pill-button pill-button--primary"
         type="submit"
-      >
+        >
         Zapisz
       </button>
       <button
@@ -147,7 +149,7 @@
         class="pill-button pill-button--secondary"
         type="button"
         (click)="reset()"
-      >
+        >
         Przywróć domyślne
       </button>
     </div>

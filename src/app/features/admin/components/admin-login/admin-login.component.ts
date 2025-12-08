@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+
 import { Component, signal, inject } from '@angular/core';
 import {
   FormBuilder,
@@ -17,14 +17,13 @@ import { AuthService } from '../../../../core/services/auth.service';
 @Component({
     selector: 'app-admin-login',
     imports: [
-        ReactiveFormsModule,
-        MatCardModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-        MatSnackBarModule,
-        NgIf
-    ],
+    ReactiveFormsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSnackBarModule
+],
     templateUrl: './admin-login.component.html',
     styleUrl: './admin-login.component.scss'
 })

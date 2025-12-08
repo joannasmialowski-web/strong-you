@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NgFor, NgOptimizedImage} from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,16 +16,15 @@ type NavItem = {
 @Component({
     selector: 'app-main-nav',
     imports: [
-        NgFor,
-        RouterLink,
-        RouterLinkActive,
-        MatToolbarModule,
-        MatButtonModule,
-        MatIconModule,
-        MatSidenavModule,
-        MatListModule,
-        NgOptimizedImage
-    ],
+    RouterLink,
+    RouterLinkActive,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    NgOptimizedImage
+],
     templateUrl: './main-nav.component.html',
     styleUrl: './main-nav.component.scss'
 })

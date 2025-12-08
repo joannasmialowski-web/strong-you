@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+
 import { Component, OnDestroy, inject } from '@angular/core';
 import {
   FormArray,
@@ -38,15 +38,14 @@ type StatGroup = FormGroup<{
 @Component({
     selector: 'app-content-editor',
     imports: [
-        ReactiveFormsModule,
-        MatCardModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-        MatIconModule,
-        MatSnackBarModule,
-        NgFor
-    ],
+    ReactiveFormsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSnackBarModule
+],
     templateUrl: './content-editor.component.html',
     styleUrl: './content-editor.component.scss'
 })

@@ -1,11 +1,11 @@
-import { NgFor } from '@angular/common';
+
 import { Component, Input } from '@angular/core';
 
 import { StatMetric } from '../../../../core/models/content.model';
 
 @Component({
     selector: 'app-stats-section',
-    imports: [NgFor],
+    imports: [],
     templateUrl: './stats-section.component.html',
     styleUrl: './stats-section.component.scss'
 })

@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -22,14 +22,13 @@ import {
 @Component({
     selector: 'app-landing-page',
     imports: [
-        NgIf,
-        AsyncPipe,
-        HeroSectionComponent,
-        AboutSectionComponent,
-        TilesSectionComponent,
-        StatsSectionComponent,
-        ContactSectionComponent
-    ],
+    AsyncPipe,
+    HeroSectionComponent,
+    AboutSectionComponent,
+    TilesSectionComponent,
+    StatsSectionComponent,
+    ContactSectionComponent
+],
     templateUrl: './landing-page.component.html',
     styleUrl: './landing-page.component.scss'
 })

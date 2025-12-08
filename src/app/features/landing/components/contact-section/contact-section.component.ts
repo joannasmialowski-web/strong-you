@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+
 import { Component, Input, inject } from '@angular/core';
 import {
   FormBuilder,
@@ -15,13 +15,12 @@ import { ContactContent } from '../../../../core/models/content.model';
 @Component({
     selector: 'app-contact-section',
     imports: [
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-        MatSnackBarModule,
-        NgIf
-    ],
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSnackBarModule
+],
     templateUrl: './contact-section.component.html',
     styleUrl: './contact-section.component.scss'
 })

@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 
 import { ContentService } from '../../core/services/content.service';
@@ -8,16 +8,18 @@ import {
 
 @Component({
     selector: 'app-contact-page',
-    imports: [NgIf, AsyncPipe, ContactSectionComponent],
+    imports: [AsyncPipe, ContactSectionComponent],
     template: `
     <section class="info-page">
-      <div class="section__inner" *ngIf="content$ | async as content">
-        <p class="eyebrow">Kontakt</p>
-        <h1>Porozmawiajmy o Twoim celu</h1>
-        <app-contact-section [contact]="content.contact" />
-      </div>
+      @if (content$ | async; as content) {
+        <div class="section__inner">
+          <p class="eyebrow">Kontakt</p>
+          <h1>Porozmawiajmy o Twoim celu</h1>
+          <app-contact-section [contact]="content.contact" />
+        </div>
+      }
     </section>
-  `,
+    `,
     styles: [
         `
       .info-page {
