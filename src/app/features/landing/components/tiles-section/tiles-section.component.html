@@ -5,13 +5,14 @@
   </div>
 
   <div class="tiles__grid">
-    <mat-card
-      *ngFor="let tile of tiles; trackBy: trackByIndex"
-      class="tile"
-    >
-      <h3>{{ tile.title }}</h3>
-      <p>{{ tile.description }}</p>
-    </mat-card>
+    @for (tile of tiles; track trackByIndex($index, tile)) {
+      <mat-card
+        class="tile"
+        >
+        <h3>{{ tile.title }}</h3>
+        <p>{{ tile.description }}</p>
+      </mat-card>
+    }
   </div>
 </div>
 

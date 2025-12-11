@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+
 import { Component, Input, inject } from '@angular/core';
 import {
   FormBuilder,
@@ -13,19 +13,16 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { ContactContent } from '../../../../core/models/content.model';
 
 @Component({
-  selector: 'app-contact-section',
-  standalone: true,
-  imports: [
+    selector: 'app-contact-section',
+    imports: [
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatSnackBarModule,
-    NgFor,
-    NgIf
-  ],
-  templateUrl: './contact-section.component.html',
-  styleUrl: './contact-section.component.scss'
+    MatSnackBarModule
+],
+    templateUrl: './contact-section.component.html',
+    styleUrl: './contact-section.component.scss'
 })
 export class ContactSectionComponent {
   @Input({ required: true }) contact!: ContactContent;

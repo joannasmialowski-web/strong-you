@@ -5,24 +5,25 @@
         class="brand__logo"
         src="assets/icons/biceps.png"
         alt="ikona biceps"
-      />
+        />
       <span class="brand__text">
         <span class="brand__name">Joanna Śmiałowski</span>
       </span>
     </a>
 
     <nav class="main-nav__links">
-      <a
-        *ngFor="let item of navItems"
-        mat-button
-        class="nav-link"
-        [class.nav-link--cta]="item.isCta"
-        routerLinkActive="nav-link--active"
-        [routerLink]="item.path"
-        [attr.aria-label]="item.label"
-      >
-        {{ item.label }}
-      </a>
+      @for (item of navItems; track item) {
+        <a
+          mat-button
+          class="nav-link"
+          [class.nav-link--cta]="item.isCta"
+          routerLinkActive="nav-link--active"
+          [routerLink]="item.path"
+          [attr.aria-label]="item.label"
+          >
+          {{ item.label }}
+        </a>
+      }
     </nav>
 
     <button
@@ -31,7 +32,7 @@
       type="button"
       aria-label="Otwórz menu"
       (click)="drawer.toggle()"
-    >
+      >
       <mat-icon>menu</mat-icon>
     </button>
   </mat-toolbar>
@@ -40,14 +41,14 @@
 <mat-sidenav-container
   class="main-nav__overlay"
   [class.main-nav__overlay--active]="drawer.opened"
->
+  >
   <mat-sidenav
     #drawer
     class="main-nav__drawer"
     position="end"
     mode="over"
     [fixedInViewport]="true"
-  >
+    >
     <nav class="drawer-nav">
       <button
         mat-icon-button
@@ -55,18 +56,19 @@
         type="button"
         aria-label="Zamknij menu"
         (click)="drawer.close()"
-      >
+        >
         <mat-icon>close</mat-icon>
       </button>
-      <a
-        *ngFor="let item of navItems"
-        mat-list-item
-        routerLinkActive="drawer-nav__link--active"
-        (click)="drawer.close()"
-        [routerLink]="item.path"
-      >
-        {{ item.label }}
-      </a>
+      @for (item of navItems; track item) {
+        <a
+          mat-list-item
+          routerLinkActive="drawer-nav__link--active"
+          (click)="drawer.close()"
+          [routerLink]="item.path"
+          >
+          {{ item.label }}
+        </a>
+      }
     </nav>
   </mat-sidenav>
   <mat-sidenav-content></mat-sidenav-content>
