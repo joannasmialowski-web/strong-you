@@ -1,7 +1,6 @@
-
 import { Component, Input } from '@angular/core';
 
-import { StatMetric } from '../../../../core/models/content.model';
+import { StatMetric } from '@core/models/content.model';
 
 @Component({
     selector: 'app-stats-section',

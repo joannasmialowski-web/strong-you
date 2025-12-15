@@ -23,7 +23,6 @@ type NavItem = {
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    NgOptimizedImage
 ],
     templateUrl: './main-nav.component.html',
     styleUrl: './main-nav.component.scss'

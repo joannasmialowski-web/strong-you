@@ -2,22 +2,12 @@ import { AsyncPipe } from '@angular/common';
 import { Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ContentService } from '../../core/services/content.service';
-import {
-  HeroSectionComponent
-} from './components/hero-section/hero-section.component';
-import {
-  AboutSectionComponent
-} from './components/about-section/about-section.component';
-import {
-  TilesSectionComponent
-} from './components/tiles-section/tiles-section.component';
-import {
-  StatsSectionComponent
-} from './components/stats-section/stats-section.component';
-import {
-  ContactSectionComponent
-} from './components/contact-section/contact-section.component';
+import { ContentService } from '@core/services/content.service';
+import { HeroSectionComponent } from './components/hero-section/hero-section.component';
+import { AboutSectionComponent } from './components/about-section/about-section.component';
+import { TilesSectionComponent } from './components/tiles-section/tiles-section.component';
+import { StatsSectionComponent } from './components/stats-section/stats-section.component';
+import { ContactSectionComponent } from './components/contact-section/contact-section.component';
 
 @Component({
     selector: 'app-landing-page',

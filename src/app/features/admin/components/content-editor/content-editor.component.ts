@@ -22,8 +22,8 @@ import {
   ServiceTile,
   SiteContent,
   StatMetric
-} from '../../../../core/models/content.model';
-import { ContentService } from '../../../../core/services/content.service';
+} from '@core/models/content.model';
+import { ContentService } from '@core/services/content.service';
 
 type TileGroup = FormGroup<{
   title: FormControl<string>;

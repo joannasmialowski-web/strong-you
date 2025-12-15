@@ -1,8 +1,7 @@
-
 import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
-import { ServiceTile } from '../../../../core/models/content.model';
+import { ServiceTile } from '@core/models/content.model';
 
 @Component({
     selector: 'app-tiles-section',

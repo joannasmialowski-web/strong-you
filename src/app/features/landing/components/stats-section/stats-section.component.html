@@ -1,8 +1,6 @@
 <div class="stats">
-  @for (stat of stats; track trackByIndex($index, stat)) {
-    <div
-      class="stat"
-      >
+  @for (stat of stats; track trackByIndex($index)) {
+    <div class="stat">
       <span class="stat__value">{{ stat.value }}</span>
       <span class="stat__label">{{ stat.label }}</span>
     </div>

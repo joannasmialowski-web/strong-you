@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 
-import { HeroContent } from '../../../../core/models/content.model';
+import { HeroContent } from '@core/models/content.model';
 
 @Component({
     selector: 'app-hero-section',

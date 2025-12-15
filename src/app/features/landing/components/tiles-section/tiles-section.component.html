@@ -5,10 +5,8 @@
   </div>
 
   <div class="tiles__grid">
-    @for (tile of tiles; track trackByIndex($index, tile)) {
-      <mat-card
-        class="tile"
-        >
+    @for (tile of tiles; track trackByIndex($index)) {
+      <mat-card class="tile">
         <h3>{{ tile.title }}</h3>
         <p>{{ tile.description }}</p>
       </mat-card>

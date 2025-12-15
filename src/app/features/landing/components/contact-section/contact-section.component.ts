@@ -1,4 +1,3 @@
-
 import { Component, Input, inject } from '@angular/core';
 import {
   FormBuilder,
@@ -10,7 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
-import { ContactContent } from '../../../../core/models/content.model';
+import { ContactContent } from '@core/models/content.model';
 
 @Component({
     selector: 'app-contact-section',
