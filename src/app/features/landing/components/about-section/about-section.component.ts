@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { AboutContent } from '../../../../core/models/content.model';
+import { AboutContent } from '@core/models/content.model';
 
 @Component({
   selector: 'app-about-section',

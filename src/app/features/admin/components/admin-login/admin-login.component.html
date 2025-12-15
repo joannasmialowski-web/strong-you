@@ -5,31 +5,39 @@
       <mat-form-field appearance="fill">
         <mat-label>E-mail</mat-label>
         <input matInput formControlName="email" type="email" />
-        <mat-error *ngIf="form.get('email')?.hasError('required')">
-          Wpisz e-mail.
-        </mat-error>
-        <mat-error *ngIf="form.get('email')?.hasError('email')">
-          Niepoprawny adres.
-        </mat-error>
+        @if (form.get('email')?.hasError('required')) {
+          <mat-error>
+            Wpisz e-mail.
+          </mat-error>
+        }
+        @if (form.get('email')?.hasError('email')) {
+          <mat-error>
+            Niepoprawny adres.
+          </mat-error>
+        }
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Hasło</mat-label>
         <input matInput formControlName="password" type="password" />
-        <mat-error *ngIf="form.get('password')?.hasError('required')">
-          Wpisz hasło.
-        </mat-error>
+        @if (form.get('password')?.hasError('required')) {
+          <mat-error>
+            Wpisz hasło.
+          </mat-error>
+        }
       </mat-form-field>
 
-      <p class="error" *ngIf="errorMessage()">
-        {{ errorMessage() }}
-      </p>
+      @if (errorMessage()) {
+        <p class="error">
+          {{ errorMessage() }}
+        </p>
+      }
 
       <button
         mat-flat-button
         class="pill-button pill-button--primary"
         type="submit"
-      >
+        >
         Zaloguj
       </button>
     </form>

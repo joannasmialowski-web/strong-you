@@ -1,4 +1,4 @@
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 
 import { ContentService } from '../../core/services/content.service';
@@ -22,29 +22,32 @@ const STEPS = [
 ];
 
 @Component({
-  selector: 'app-book-training-page',
-  standalone: true,
-  imports: [NgIf, AsyncPipe, NgFor, ContactSectionComponent],
-  template: `
+    selector: 'app-book-training-page',
+    imports: [AsyncPipe, ContactSectionComponent],
+    template: `
     <section class="info-page">
-      <div class="section__inner" *ngIf="content$ | async as content">
-        <p class="eyebrow">Umów trening</p>
-        <h1>Prosty proces w trzech krokach</h1>
-        <div class="steps">
-          <div class="step" *ngFor="let step of steps">
-            <span class="step__number">{{ stepNumber(step) }}</span>
-            <div>
-              <h3>{{ step.title }}</h3>
-              <p>{{ step.description }}</p>
-            </div>
+      @if (content$ | async; as content) {
+        <div class="section__inner">
+          <p class="eyebrow">Umów trening</p>
+          <h1>Prosty proces w trzech krokach</h1>
+          <div class="steps">
+            @for (step of steps; track step) {
+              <div class="step">
+                <span class="step__number">{{ stepNumber(step) }}</span>
+                <div>
+                  <h3>{{ step.title }}</h3>
+                  <p>{{ step.description }}</p>
+                </div>
+              </div>
+            }
           </div>
+          <app-contact-section [contact]="content.contact" />
         </div>
-        <app-contact-section [contact]="content.contact" />
-      </div>
+      }
     </section>
-  `,
-  styles: [
-    `
+    `,
+    styles: [
+        `
       .info-page {
         padding: 6rem 0;
       }
@@ -90,7 +93,7 @@ const STEPS = [
         color: var(--color-text-subtle);
       }
     `
-  ]
+    ]
 })
 export class BookTrainingPageComponent {
   private readonly contentService = inject(ContentService);

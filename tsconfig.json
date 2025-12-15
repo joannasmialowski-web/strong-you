@@ -19,24 +19,13 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
     "baseUrl": "./",
     "paths": {
-      "@app/*": [
-        "src/app/*"
-      ],
-      "@admin/*": [
-        "src/app/features/admin/*"
-      ],
-      "@pages/*": [
-        "src/app/features/pages/*"
-      ],
-      "@landing/*": [
-        "src/app/features/landing/*"
-      ]
+      "@app/*": ["src/app/*"],
+      "@admin/*": ["src/app/features/admin/*"],
+      "@pages/*": ["src/app/features/pages/*"],
+      "@landing/*": ["src/app/features/landing/*"],
+      "@core/*": ["src/app/core/*"]
     }
   },
   "angularCompilerOptions": {

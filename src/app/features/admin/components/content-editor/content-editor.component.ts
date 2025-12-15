@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+
 import { Component, OnDestroy, inject } from '@angular/core';
 import {
   FormArray,
@@ -22,8 +22,8 @@ import {
   ServiceTile,
   SiteContent,
   StatMetric
-} from '../../../../core/models/content.model';
-import { ContentService } from '../../../../core/services/content.service';
+} from '@core/models/content.model';
+import { ContentService } from '@core/services/content.service';
 
 type TileGroup = FormGroup<{
   title: FormControl<string>;
@@ -36,20 +36,18 @@ type StatGroup = FormGroup<{
 }>;
 
 @Component({
-  selector: 'app-content-editor',
-  standalone: true,
-  imports: [
+    selector: 'app-content-editor',
+    imports: [
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatSnackBarModule,
-    NgFor
-  ],
-  templateUrl: './content-editor.component.html',
-  styleUrl: './content-editor.component.scss'
+    MatSnackBarModule
+],
+    templateUrl: './content-editor.component.html',
+    styleUrl: './content-editor.component.scss'
 })
 export class ContentEditorComponent implements OnDestroy {
   private readonly fb = inject(FormBuilder);

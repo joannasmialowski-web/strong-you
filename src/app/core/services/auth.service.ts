@@ -2,9 +2,9 @@ import { Injectable, computed, signal } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private readonly storageKey = 'strongyou.admin.auth';
-  private readonly allowedEmail = 'admin@strongyou.pl';
-  private readonly allowedPassword = 'Admin123!';
+  private readonly storageKey = `strongyou.admin.auth`;
+  private readonly allowedEmail = `admin@strongyou.pl`;
+  private readonly allowedPassword = `Admin123!`;
   private readonly authenticated = signal(this.readPersisted());
 
   readonly isAuthenticated = computed(() => this.authenticated());

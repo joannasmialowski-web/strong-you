@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+
 import { Component, signal, inject } from '@angular/core';
 import {
   FormBuilder,
@@ -12,22 +12,20 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
-import { AuthService } from '../../../../core/services/auth.service';
+import { AuthService } from '@core/services/auth.service';
 
 @Component({
-  selector: 'app-admin-login',
-  standalone: true,
-  imports: [
+    selector: 'app-admin-login',
+    imports: [
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatSnackBarModule,
-    NgIf
-  ],
-  templateUrl: './admin-login.component.html',
-  styleUrl: './admin-login.component.scss'
+    MatSnackBarModule
+],
+    templateUrl: './admin-login.component.html',
+    styleUrl: './admin-login.component.scss'
 })
 export class AdminLoginComponent {
   readonly errorMessage = signal('');
