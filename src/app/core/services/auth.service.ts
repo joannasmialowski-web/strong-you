@@ -41,7 +41,8 @@ export class AuthService {
     }
     try {
       window.localStorage.setItem(this.storageKey, String(value));
-    } catch {
+    } catch (error) {
+      console.warn('Failed to persist authentication state', error);
     }
   }
 }

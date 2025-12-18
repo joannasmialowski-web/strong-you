@@ -36,11 +36,11 @@ export class AdminLoginComponent {
   private readonly snackBar = inject(MatSnackBar);
 
   readonly form = this.fb.nonNullable.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required]
+    email: ['', [Validators.required.bind(Validators), Validators.email.bind(Validators)]],
+    password: ['', Validators.required.bind(Validators)]
   });
 
-  submit(): void {
+  async submit(): Promise<void> {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
@@ -50,7 +50,7 @@ export class AdminLoginComponent {
     if (success) {
       this.errorMessage.set('');
       this.snackBar.open('Witaj w panelu!', undefined, { duration: 2500 });
-      this.router.navigate(['/admin']);
+      await this.router.navigate(['/admin']);
       return;
     }
     this.errorMessage.set('Niepoprawny e-mail lub hasło.');
