@@ -56,22 +56,22 @@ export class ContentEditorComponent implements OnDestroy {
 
   readonly form = this.fb.nonNullable.group({
     hero: this.fb.nonNullable.group({
-      title: ['', Validators.required],
-      subtitle: ['', Validators.required],
-      primaryCtaLabel: ['', Validators.required],
-      secondaryCtaLabel: ['', Validators.required],
-      imageUrl: ['', Validators.required]
+      title: ['', Validators.required.bind(Validators)],
+      subtitle: ['', Validators.required.bind(Validators)],
+      primaryCtaLabel: ['', Validators.required.bind(Validators)],
+      secondaryCtaLabel: ['', Validators.required.bind(Validators)],
+      imageUrl: ['', Validators.required.bind(Validators)],
     }),
     about: this.fb.nonNullable.group({
-      title: ['', Validators.required],
-      intro: ['', Validators.required]
+      title: ['', Validators.required.bind(Validators)],
+      intro: ['', Validators.required.bind(Validators)],
     }),
     tiles: this.fb.array<TileGroup>([]),
     stats: this.fb.array<StatGroup>([]),
     contact: this.fb.nonNullable.group({
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required],
-      location: ['', Validators.required]
+      email: ['', [Validators.required.bind(Validators), Validators.email.bind(Validators)]],
+      phone: ['', Validators.required.bind(Validators)],
+      location: ['', Validators.required.bind(Validators)],
     })
   });
 
@@ -156,15 +156,15 @@ export class ContentEditorComponent implements OnDestroy {
 
   private buildTileGroup(tile?: ServiceTile): TileGroup {
     return this.fb.nonNullable.group({
-      title: [tile?.title ?? '', Validators.required],
-      description: [tile?.description ?? '', Validators.required]
+      title: [tile?.title ?? '', Validators.required.bind(Validators)],
+      description: [tile?.description ?? '', Validators.required.bind(Validators)]
     });
   }
 
   private buildStatGroup(stat?: StatMetric): StatGroup {
     return this.fb.nonNullable.group({
-      value: [stat?.value ?? '', Validators.required],
-      label: [stat?.label ?? '', Validators.required]
+      value: [stat?.value ?? '', Validators.required.bind(Validators)],
+      label: [stat?.label ?? '', Validators.required.bind(Validators)]
     });
   }
 }

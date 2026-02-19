@@ -32,15 +32,15 @@ export class ContactSectionComponent {
   readonly form = this.fb.nonNullable.group({
     name: [
       '',
-      [Validators.required, Validators.maxLength(60)]
+      [Validators.required.bind(Validators), Validators.maxLength(60)]
     ],
     email: [
       '',
-      [Validators.required, Validators.email]
+      [Validators.required.bind(Validators), Validators.email.bind(Validators)]
     ],
     message: [
       '',
-      [Validators.required, Validators.minLength(10)]
+      [Validators.required.bind(Validators), Validators.minLength(10)]
     ]
   });
 
@@ -70,4 +70,3 @@ export class ContactSectionComponent {
     return `mailto:${this.contact.email}`;
   }
 }
-

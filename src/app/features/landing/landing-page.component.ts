@@ -34,8 +34,8 @@ export class LandingPageComponent {
     this.scrollToContact();
   }
 
-  handleSecondaryCta(): void {
-    this.router.navigate(['/przemiany']);
+  async handleSecondaryCta(): Promise<void> {
+    await this.router.navigate(['/przemiany']);
   }
 
   private scrollToContact(): void {

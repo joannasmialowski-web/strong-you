@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -7,11 +6,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 
-type NavItem = {
+interface NavItem {
   label: string;
   path: string;
   isCta?: boolean;
-};
+}
 
 @Component({
     selector: 'app-main-nav',

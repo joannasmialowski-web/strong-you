@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-type PageData = {
+interface PageData {
   title: string;
   description: string;
-};
+}
 
 @Component({
   selector: 'app-simple-page',
