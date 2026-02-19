@@ -15,6 +15,7 @@ module.exports = defineConfig([
       tseslint.configs.recommendedTypeChecked,
       tseslint.configs.stylistic,
       angular.configs.tsRecommended,
+      "prettier"
     ],
     processor: angular.processInlineTemplates,
     languageOptions: {

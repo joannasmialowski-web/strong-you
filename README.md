@@ -13,7 +13,7 @@ Projekt prezentujący landing page oraz panel administracyjny dla trenera person
 ---
 
 ## Stack technologiczny
-- **Angular 18** (standalone) + Angular CLI 18
+- **Angular 21** (standalone) + Angular CLI 18
 - **Angular Material**
 - **Reactive Forms & RxJS**
 - **Angular Signals** – zarządzanie stanem logowania
