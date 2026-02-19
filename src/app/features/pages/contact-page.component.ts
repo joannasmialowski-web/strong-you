@@ -1,15 +1,13 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 
-import { ContentService } from '../../core/services/content.service';
-import {
-  ContactSectionComponent
-} from '../landing/components/contact-section/contact-section.component';
+import { ContentService } from '@core/services/content.service';
+import { ContactSectionComponent } from '@landing/components/contact-section/contact-section.component';
 
 @Component({
-    selector: 'app-contact-page',
-    imports: [AsyncPipe, ContactSectionComponent],
-    template: `
+  selector: 'app-contact-page',
+  imports: [AsyncPipe, ContactSectionComponent],
+  template: `
     <section class="info-page">
       @if (content$ | async; as content) {
         <div class="section__inner">
@@ -19,9 +17,9 @@ import {
         </div>
       }
     </section>
-    `,
-    styles: [
-        `
+  `,
+  styles: [
+    `
       .info-page {
         padding: 6rem 0;
       }
@@ -31,11 +29,10 @@ import {
         letter-spacing: 0.08em;
         margin-bottom: 2rem;
       }
-    `
-    ]
+    `,
+  ],
 })
 export class ContactPageComponent {
   private readonly contentService = inject(ContentService);
   readonly content$ = this.contentService.content$;
 }
-

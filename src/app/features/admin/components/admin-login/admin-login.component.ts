@@ -1,10 +1,5 @@
-
 import { Component, signal, inject } from '@angular/core';
-import {
-  FormBuilder,
-  ReactiveFormsModule,
-  Validators
-} from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -15,17 +10,17 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { AuthService } from '@core/services/auth.service';
 
 @Component({
-    selector: 'app-admin-login',
-    imports: [
+  selector: 'app-admin-login',
+  imports: [
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatSnackBarModule
-],
-    templateUrl: './admin-login.component.html',
-    styleUrl: './admin-login.component.scss'
+    MatSnackBarModule,
+  ],
+  templateUrl: './admin-login.component.html',
+  styleUrl: './admin-login.component.scss',
 })
 export class AdminLoginComponent {
   readonly errorMessage = signal('');
@@ -37,7 +32,7 @@ export class AdminLoginComponent {
 
   readonly form = this.fb.nonNullable.group({
     email: ['', [Validators.required.bind(Validators), Validators.email.bind(Validators)]],
-    password: ['', Validators.required.bind(Validators)]
+    password: ['', Validators.required.bind(Validators)],
   });
 
   async submit(): Promise<void> {
@@ -56,4 +51,3 @@ export class AdminLoginComponent {
     this.errorMessage.set('Niepoprawny e-mail lub hasło.');
   }
 }
-

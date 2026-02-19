@@ -10,17 +10,17 @@ import { StatsSectionComponent } from './components/stats-section/stats-section.
 import { ContactSectionComponent } from './components/contact-section/contact-section.component';
 
 @Component({
-    selector: 'app-landing-page',
-    imports: [
+  selector: 'app-landing-page',
+  imports: [
     AsyncPipe,
     HeroSectionComponent,
     AboutSectionComponent,
     TilesSectionComponent,
     StatsSectionComponent,
-    ContactSectionComponent
-],
-    templateUrl: './landing-page.component.html',
-    styleUrl: './landing-page.component.scss'
+    ContactSectionComponent,
+  ],
+  templateUrl: './landing-page.component.html',
+  styleUrl: './landing-page.component.scss',
 })
 export class LandingPageComponent {
   @ViewChild('contactSection') contactSection?: ElementRef<HTMLElement>;
@@ -46,4 +46,3 @@ export class LandingPageComponent {
     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
-

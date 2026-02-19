@@ -72,11 +72,9 @@ describe('ContactSectionComponent', () => {
     component.form.setValue(VALID_FORM_VALUE);
     component.submit();
 
-    expect(openSpy).toHaveBeenCalledWith(
-      'Dzięki! Odezwę się wkrótce.',
-      undefined,
-      { duration: 3000 },
-    );
+    expect(openSpy).toHaveBeenCalledWith('Dzięki! Odezwę się wkrótce.', undefined, {
+      duration: 3000,
+    });
     expect(component.form.value).toEqual(EMPTY_FORM_VALUE);
   });
 });

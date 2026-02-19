@@ -11,11 +11,9 @@ describe('AuthService', () => {
     spyOn(window.localStorage, 'getItem').and.callFake((key: string) => {
       return store[key] ?? null;
     });
-    spyOn(window.localStorage, 'setItem').and.callFake(
-      (key: string, value: string) => {
-        store[key] = value;
-      }
-    );
+    spyOn(window.localStorage, 'setItem').and.callFake((key: string, value: string) => {
+      store[key] = value;
+    });
 
     TestBed.configureTestingModule({});
     service = TestBed.inject(AuthService);
@@ -45,4 +43,3 @@ describe('AuthService', () => {
     expect(store['strongyou.admin.auth']).toBe('false');
   });
 });
-

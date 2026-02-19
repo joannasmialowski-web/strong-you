@@ -3,6 +3,7 @@
 Projekt prezentujący landing page oraz panel administracyjny dla trenera personalnego. Aplikacja działa w trybie **pure front-end** – treści przechowywane są w `localStorage`, a panel CMS pozwala edytować je bez backendu.
 
 ## Spis treści
+
 1. [Stack technologiczny](#stack-technologiczny)
 2. [Architektura i funkcjonalności](#architektura-i-funkcjonalności)
 3. [Konfiguracja i uruchomienie](#konfiguracja-i-uruchomienie)
@@ -13,6 +14,7 @@ Projekt prezentujący landing page oraz panel administracyjny dla trenera person
 ---
 
 ## Stack technologiczny
+
 - **Angular 21** (standalone) + Angular CLI 18
 - **Angular Material**
 - **Reactive Forms & RxJS**
@@ -21,6 +23,7 @@ Projekt prezentujący landing page oraz panel administracyjny dla trenera person
 - **Karma + Jasmine** – testy jednostkowe (serwisy, formularze)
 
 ## Architektura i funkcjonalności
+
 - **Publiczna strona (landing)**
   - hero z CTA, sekcja opisowa, kafle „Jak pracuję”, statystyki, formularz kontaktowy z walidacją i snackbarami.
   - Nawigacja desktop + mobilnie (`mat-toolbar` + `mat-sidenav`) z obsługą anchorów i zamykania przez backdrop.
@@ -32,23 +35,28 @@ Projekt prezentujący landing page oraz panel administracyjny dla trenera person
 - **Brak backendu** – wszystkie dane trzymane są po stronie przeglądarki (`DEFAULT_CONTENT` + `localStorage`).
 
 ## Konfiguracja i uruchomienie
+
 ```bash
 npm install
 npm start     # dev server dostępny pod http://localhost:4200
 ```
 
 ### Build produkcyjny
+
 ```bash
 npm run build   # artefakty w dist/strongyou
 ```
 
 ## Testy
+
 ```bash
 npm run strongyou
 ```
+
 - Jednostkowe testy obejmują `AuthService`, `ContentService`, `ContactSectionComponent` oraz `AppComponent`.
 
 ## Struktura katalogów
+
 ```
 src/
  ├─ app/
@@ -64,10 +72,10 @@ src/
 ```
 
 ## Rozwiązania techniczne
+
 1. **Standalone Angular + lazy loading** – konfiguracja routera via `provideRouter`, `withInMemoryScrolling`, brak NgModule.
 2. **Mini CMS bez backendu** – `ContentService` łączy `BehaviorSubject` + `localStorage`, formularze w panelu admina (Reactive Forms + `FormArray`).
 3. **Signals w AuthService** – prosty system logowania z pamięcią stanu i guardem na `/admin/**`.
 4. **Material + custom CSS** – spójna paleta dark theme, klasy `.section__inner`, `.pill-button` i zmienne `--color-*`.
 5. **Responsywne menu** – sticky toolbar + `mat-sidenav` overlay, zamykany przy kliknięciu w tło lub przycisk X.
 6. **Formularz kontaktowy** – walidacja (`required`, `minLength`, `email`), snackbar po wysłaniu, log danych dla celów demo.
-
