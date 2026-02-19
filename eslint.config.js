@@ -16,7 +16,7 @@ module.exports = defineConfig([
       tseslint.configs.recommendedTypeChecked,
       tseslint.configs.stylistic,
       angular.configs.tsRecommended,
-      'prettierConfig',
+      prettierConfig,
     ],
     processor: angular.processInlineTemplates,
     languageOptions: {
@@ -26,7 +26,7 @@ module.exports = defineConfig([
       },
     },
     rules: {
-      'max-len': ['error', { code: 100, ignoreUrls: true, ignoreTemplateLiterals: true }],
+      'max-len': ['error', { code: 120, ignoreUrls: true, ignoreTemplateLiterals: true }],
       'max-params': ['error', 4],
       'max-lines-per-function': ['error', { max: 50, skipComments: true, skipBlankLines: true }],
       '@angular-eslint/directive-selector': [
