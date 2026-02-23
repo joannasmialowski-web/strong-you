@@ -11,8 +11,7 @@ export class AuthService {
 
   login(email: string, password: string): boolean {
     const success =
-      email.trim().toLowerCase() === this.allowedEmail &&
-      password === this.allowedPassword;
+      email.trim().toLowerCase() === this.allowedEmail && password === this.allowedPassword;
     this.authenticated.set(success);
     this.persist(success);
     return success;
@@ -46,4 +45,3 @@ export class AuthService {
     }
   }
 }
-

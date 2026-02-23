@@ -5,7 +5,7 @@
         [content]="content.hero"
         (primaryCta)="handlePrimaryCta()"
         (secondaryCta)="handleSecondaryCta()"
-        />
+      />
     </div>
   </section>
   <section class="section">
@@ -23,14 +23,9 @@
       <app-stats-section [stats]="content.stats" />
     </div>
   </section>
-  <section
-    class="section section--contact"
-    id="kontakt"
-    #contactSection
-    >
+  <section class="section section--contact" id="kontakt" #contactSection>
     <div class="section__inner">
       <app-contact-section [contact]="content.contact" />
     </div>
   </section>
 }
-

@@ -6,14 +6,10 @@
         <mat-label>E-mail</mat-label>
         <input matInput formControlName="email" type="email" />
         @if (form.get('email')?.hasError('required')) {
-          <mat-error>
-            Wpisz e-mail.
-          </mat-error>
+          <mat-error> Wpisz e-mail. </mat-error>
         }
         @if (form.get('email')?.hasError('email')) {
-          <mat-error>
-            Niepoprawny adres.
-          </mat-error>
+          <mat-error> Niepoprawny adres. </mat-error>
         }
       </mat-form-field>
 
@@ -21,9 +17,7 @@
         <mat-label>Hasło</mat-label>
         <input matInput formControlName="password" type="password" />
         @if (form.get('password')?.hasError('required')) {
-          <mat-error>
-            Wpisz hasło.
-          </mat-error>
+          <mat-error> Wpisz hasło. </mat-error>
         }
       </mat-form-field>
 
@@ -33,14 +27,9 @@
         </p>
       }
 
-      <button
-        mat-flat-button
-        class="pill-button pill-button--primary"
-        type="submit"
-        >
+      <button mat-flat-button class="pill-button pill-button--primary" type="submit">
         Zaloguj
       </button>
     </form>
   </mat-card>
 </section>
-

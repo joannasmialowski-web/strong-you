@@ -1,4 +1,3 @@
-
 import { Component, OnDestroy, inject } from '@angular/core';
 import {
   FormArray,
@@ -6,7 +5,7 @@ import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
-  Validators
+  Validators,
 } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -21,7 +20,7 @@ import {
   HeroContent,
   ServiceTile,
   SiteContent,
-  StatMetric
+  StatMetric,
 } from '@core/models/content.model';
 import { ContentService } from '@core/services/content.service';
 
@@ -36,18 +35,18 @@ type StatGroup = FormGroup<{
 }>;
 
 @Component({
-    selector: 'app-content-editor',
-    imports: [
+  selector: 'app-content-editor',
+  imports: [
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatSnackBarModule
-],
-    templateUrl: './content-editor.component.html',
-    styleUrl: './content-editor.component.scss'
+    MatSnackBarModule,
+  ],
+  templateUrl: './content-editor.component.html',
+  styleUrl: './content-editor.component.scss',
 })
 export class ContentEditorComponent implements OnDestroy {
   private readonly fb = inject(FormBuilder);
@@ -72,13 +71,12 @@ export class ContentEditorComponent implements OnDestroy {
       email: ['', [Validators.required.bind(Validators), Validators.email.bind(Validators)]],
       phone: ['', Validators.required.bind(Validators)],
       location: ['', Validators.required.bind(Validators)],
-    })
+    }),
   });
 
-  private readonly subscription: Subscription =
-    this.contentService.content$.subscribe(content =>
-      this.patchForm(content)
-    );
+  private readonly subscription: Subscription = this.contentService.content$.subscribe((content) =>
+    this.patchForm(content),
+  );
 
   get tiles(): FormArray<TileGroup> {
     return this.form.controls.tiles;
@@ -115,7 +113,7 @@ export class ContentEditorComponent implements OnDestroy {
       about: value.about,
       tiles: value.tiles as ServiceTile[],
       stats: value.stats as StatMetric[],
-      contact: value.contact as ContactContent
+      contact: value.contact as ContactContent,
     });
     this.snackBar.open('Zapisano', undefined, { duration: 2500 });
   }
@@ -123,7 +121,7 @@ export class ContentEditorComponent implements OnDestroy {
   reset(): void {
     this.contentService.resetContent();
     this.snackBar.open('Przywrócono domyślne treści', undefined, {
-      duration: 2500
+      duration: 2500,
     });
   }
 
@@ -135,37 +133,32 @@ export class ContentEditorComponent implements OnDestroy {
     this.form.patchValue({
       hero: content.hero,
       about: content.about,
-      contact: content.contact
+      contact: content.contact,
     });
-    this.setArray(this.tiles, content.tiles, tile =>
-      this.buildTileGroup(tile)
-    );
-    this.setArray(this.stats, content.stats, stat =>
-      this.buildStatGroup(stat)
-    );
+    this.setArray(this.tiles, content.tiles, (tile) => this.buildTileGroup(tile));
+    this.setArray(this.stats, content.stats, (stat) => this.buildStatGroup(stat));
   }
 
   private setArray<T>(
     array: FormArray<FormGroup>,
     values: T[],
-    builder: (value: T) => FormGroup
+    builder: (value: T) => FormGroup,
   ): void {
     array.clear();
-    values.forEach(value => array.push(builder(value)));
+    values.forEach((value) => array.push(builder(value)));
   }
 
   private buildTileGroup(tile?: ServiceTile): TileGroup {
     return this.fb.nonNullable.group({
       title: [tile?.title ?? '', Validators.required.bind(Validators)],
-      description: [tile?.description ?? '', Validators.required.bind(Validators)]
+      description: [tile?.description ?? '', Validators.required.bind(Validators)],
     });
   }
 
   private buildStatGroup(stat?: StatMetric): StatGroup {
     return this.fb.nonNullable.group({
       value: [stat?.value ?? '', Validators.required.bind(Validators)],
-      label: [stat?.label ?? '', Validators.required.bind(Validators)]
+      label: [stat?.label ?? '', Validators.required.bind(Validators)],
     });
   }
 }
-

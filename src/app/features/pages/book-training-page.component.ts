@@ -2,29 +2,27 @@ import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 
 import { ContentService } from '../../core/services/content.service';
-import {
-  ContactSectionComponent
-} from '../landing/components/contact-section/contact-section.component';
+import { ContactSectionComponent } from '@landing/components/contact-section/contact-section.component';
 
 const STEPS = [
   {
     title: 'Konsultacja online',
-    description: '30 minut rozmowy o celach, zdrowiu i czasie.'
+    description: '30 minut rozmowy o celach, zdrowiu i czasie.',
   },
   {
     title: 'Plan startowy',
-    description: 'Otrzymujesz plan na 2 tygodnie i listę szybkich zadań.'
+    description: 'Otrzymujesz plan na 2 tygodnie i listę szybkich zadań.',
   },
   {
     title: 'Regularny coaching',
-    description: 'Trzymam rękę na pulsie i dopasowuję obciążenia.'
-  }
+    description: 'Trzymam rękę na pulsie i dopasowuję obciążenia.',
+  },
 ];
 
 @Component({
-    selector: 'app-book-training-page',
-    imports: [AsyncPipe, ContactSectionComponent],
-    template: `
+  selector: 'app-book-training-page',
+  imports: [AsyncPipe, ContactSectionComponent],
+  template: `
     <section class="info-page">
       @if (content$ | async; as content) {
         <div class="section__inner">
@@ -45,9 +43,9 @@ const STEPS = [
         </div>
       }
     </section>
-    `,
-    styles: [
-        `
+  `,
+  styles: [
+    `
       .info-page {
         padding: 6rem 0;
       }
@@ -92,8 +90,8 @@ const STEPS = [
         margin: 0;
         color: var(--color-text-subtle);
       }
-    `
-    ]
+    `,
+  ],
 })
 export class BookTrainingPageComponent {
   private readonly contentService = inject(ContentService);
@@ -105,4 +103,3 @@ export class BookTrainingPageComponent {
     return `0${index + 1}`;
   }
 }
-

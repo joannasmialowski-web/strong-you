@@ -34,11 +34,10 @@ interface PageData {
         line-height: 1.7;
         max-width: 720px;
       }
-    `
-  ]
+    `,
+  ],
 })
 export class SimplePageComponent {
   private readonly route = inject(ActivatedRoute);
   readonly data = this.route.snapshot.data as PageData;
 }
-

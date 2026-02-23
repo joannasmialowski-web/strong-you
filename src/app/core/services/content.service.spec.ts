@@ -12,11 +12,9 @@ describe('ContentService', () => {
     spyOn(window.localStorage, 'getItem').and.callFake((key: string) => {
       return store[key] ?? null;
     });
-    spyOn(window.localStorage, 'setItem').and.callFake(
-      (key: string, value: string) => {
-        store[key] = value;
-      }
-    );
+    spyOn(window.localStorage, 'setItem').and.callFake((key: string, value: string) => {
+      store[key] = value;
+    });
 
     TestBed.configureTestingModule({});
     service = TestBed.inject(ContentService);
@@ -32,13 +30,11 @@ describe('ContentService', () => {
 
   it('should merge hero updates without losing other fields', () => {
     service.updateContent({
-      hero: { ...DEFAULT_CONTENT.hero, title: 'Nowy tytuł' }
+      hero: { ...DEFAULT_CONTENT.hero, title: 'Nowy tytuł' },
     });
 
     expect(service.snapshot.hero.title).toBe('Nowy tytuł');
-    expect(service.snapshot.hero.subtitle).toBe(
-      DEFAULT_CONTENT.hero.subtitle
-    );
+    expect(service.snapshot.hero.subtitle).toBe(DEFAULT_CONTENT.hero.subtitle);
   });
 
   it('should persist updates to localStorage', () => {
@@ -46,8 +42,8 @@ describe('ContentService', () => {
       contact: {
         email: 'nowy@kontakt.pl',
         phone: DEFAULT_CONTENT.contact.phone,
-        location: DEFAULT_CONTENT.contact.location
-      }
+        location: DEFAULT_CONTENT.contact.location,
+      },
     });
 
     expect(store['strongyou.content']).toContain('nowy@kontakt.pl');
@@ -55,7 +51,7 @@ describe('ContentService', () => {
 
   it('should reset content to defaults', () => {
     service.updateContent({
-      hero: { ...DEFAULT_CONTENT.hero, title: 'Zmiana' }
+      hero: { ...DEFAULT_CONTENT.hero, title: 'Zmiana' },
     });
 
     service.resetContent();
@@ -63,4 +59,3 @@ describe('ContentService', () => {
     expect(service.snapshot.hero.title).toBe(DEFAULT_CONTENT.hero.title);
   });
 });
-
