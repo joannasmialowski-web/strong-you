@@ -8,14 +8,14 @@ import {
   ContactContent,
   HeroContent,
   ServiceTile,
-  StatMetric
+  StatMetric,
 } from '../models/content.model';
 
 @Injectable({ providedIn: 'root' })
 export class ContentService {
   private readonly storageKey = 'strongyou.content';
   private readonly subject = new BehaviorSubject<SiteContent>(
-    this.readFromStorage() ?? this.cloneContent(DEFAULT_CONTENT)
+    this.readFromStorage() ?? this.cloneContent(DEFAULT_CONTENT),
   );
 
   readonly content$ = this.subject.asObservable();
@@ -31,7 +31,7 @@ export class ContentService {
       about: this.mergeAbout(current.about, partial.about),
       tiles: this.cloneTiles(partial.tiles ?? current.tiles),
       stats: this.cloneStats(partial.stats ?? current.stats),
-      contact: this.mergeContact(current.contact, partial.contact)
+      contact: this.mergeContact(current.contact, partial.contact),
     };
     const cloned = this.cloneContent(next);
     this.persist(cloned);
@@ -44,30 +44,21 @@ export class ContentService {
     this.subject.next(reset);
   }
 
-  private mergeHero(
-    current: HeroContent,
-    incoming?: HeroContent
-  ): HeroContent {
+  private mergeHero(current: HeroContent, incoming?: HeroContent): HeroContent {
     if (!incoming) {
       return current;
     }
     return { ...current, ...incoming };
   }
 
-  private mergeAbout(
-    current: AboutContent,
-    incoming?: AboutContent
-  ): AboutContent {
+  private mergeAbout(current: AboutContent, incoming?: AboutContent): AboutContent {
     if (!incoming) {
       return current;
     }
     return { ...current, ...incoming };
   }
 
-  private mergeContact(
-    current: ContactContent,
-    incoming?: ContactContent
-  ): ContactContent {
+  private mergeContact(current: ContactContent, incoming?: ContactContent): ContactContent {
     if (!incoming) {
       return current;
     }
@@ -80,9 +71,7 @@ export class ContentService {
     }
     try {
       const stored = window.localStorage.getItem(this.storageKey);
-      return stored
-        ? this.cloneContent(JSON.parse(stored) as SiteContent)
-        : null;
+      return stored ? this.cloneContent(JSON.parse(stored) as SiteContent) : null;
     } catch {
       return null;
     }
@@ -93,10 +82,7 @@ export class ContentService {
       return;
     }
     try {
-      window.localStorage.setItem(
-        this.storageKey,
-        JSON.stringify(content)
-      );
+      window.localStorage.setItem(this.storageKey, JSON.stringify(content));
     } catch {
       // no-op
     }
@@ -108,16 +94,15 @@ export class ContentService {
       about: { ...content.about },
       tiles: this.cloneTiles(content.tiles),
       stats: this.cloneStats(content.stats),
-      contact: { ...content.contact }
+      contact: { ...content.contact },
     };
   }
 
   private cloneTiles(tiles: ServiceTile[]): ServiceTile[] {
-    return tiles.map(tile => ({ ...tile }));
+    return tiles.map((tile) => ({ ...tile }));
   }
 
   private cloneStats(stats: StatMetric[]): StatMetric[] {
-    return stats.map(stat => ({ ...stat }));
+    return stats.map((stat) => ({ ...stat }));
   }
 }
-

@@ -43,21 +43,14 @@
     <mat-card>
       <div class="card-header">
         <h2>Kafle usług</h2>
-        <button
-          mat-stroked-button
-          type="button"
-          (click)="addTile()"
-          >
+        <button mat-stroked-button type="button" (click)="addTile()">
           <mat-icon>add</mat-icon>
           Dodaj kafel
         </button>
       </div>
       <div formArrayName="tiles" class="dynamic-grid">
         @for (tile of tiles.controls; track tile; let i = $index) {
-          <div
-            class="dynamic-item"
-            [formGroupName]="i"
-            >
+          <div class="dynamic-item" [formGroupName]="i">
             <mat-form-field appearance="fill">
               <mat-label>Tytuł</mat-label>
               <input matInput formControlName="title" />
@@ -66,12 +59,7 @@
               <mat-label>Opis</mat-label>
               <textarea matInput rows="2" formControlName="description"></textarea>
             </mat-form-field>
-            <button
-              mat-icon-button
-              type="button"
-              aria-label="Usuń"
-              (click)="removeTile(i)"
-              >
+            <button mat-icon-button type="button" aria-label="Usuń" (click)="removeTile(i)">
               <mat-icon>delete</mat-icon>
             </button>
           </div>
@@ -82,21 +70,14 @@
     <mat-card>
       <div class="card-header">
         <h2>Statystyki</h2>
-        <button
-          mat-stroked-button
-          type="button"
-          (click)="addStat()"
-          >
+        <button mat-stroked-button type="button" (click)="addStat()">
           <mat-icon>add</mat-icon>
           Dodaj statystykę
         </button>
       </div>
       <div formArrayName="stats" class="dynamic-grid">
         @for (stat of stats.controls; track stat; let i = $index) {
-          <div
-            class="dynamic-item"
-            [formGroupName]="i"
-            >
+          <div class="dynamic-item" [formGroupName]="i">
             <mat-form-field appearance="fill">
               <mat-label>Wartość</mat-label>
               <input matInput formControlName="value" />
@@ -105,12 +86,7 @@
               <mat-label>Etykieta</mat-label>
               <input matInput formControlName="label" />
             </mat-form-field>
-            <button
-              mat-icon-button
-              type="button"
-              aria-label="Usuń"
-              (click)="removeStat(i)"
-              >
+            <button mat-icon-button type="button" aria-label="Usuń" (click)="removeStat(i)">
               <mat-icon>delete</mat-icon>
             </button>
           </div>
@@ -137,22 +113,15 @@
     </mat-card>
 
     <div class="form-actions">
-      <button
-        mat-flat-button
-        class="pill-button pill-button--primary"
-        type="submit"
-        >
-        Zapisz
-      </button>
+      <button mat-flat-button class="pill-button pill-button--primary" type="submit">Zapisz</button>
       <button
         mat-stroked-button
         class="pill-button pill-button--secondary"
         type="button"
         (click)="reset()"
-        >
+      >
         Przywróć domyślne
       </button>
     </div>
   </form>
 </section>
-

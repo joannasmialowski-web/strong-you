@@ -1,11 +1,7 @@
 <header class="main-nav">
   <mat-toolbar class="main-nav__bar">
     <a class="brand" routerLink="/">
-      <img
-        class="brand__logo"
-        src="assets/icons/biceps.png"
-        alt="ikona biceps"
-        />
+      <img class="brand__logo" src="assets/icons/biceps.png" alt="ikona biceps" />
       <span class="brand__text">
         <span class="brand__name">Joanna Śmiałowski</span>
       </span>
@@ -20,7 +16,7 @@
           routerLinkActive="nav-link--active"
           [routerLink]="item.path"
           [attr.aria-label]="item.label"
-          >
+        >
           {{ item.label }}
         </a>
       }
@@ -32,23 +28,14 @@
       type="button"
       aria-label="Otwórz menu"
       (click)="drawer.toggle()"
-      >
+    >
       <mat-icon>menu</mat-icon>
     </button>
   </mat-toolbar>
 </header>
 
-<mat-sidenav-container
-  class="main-nav__overlay"
-  [class.main-nav__overlay--active]="drawer.opened"
-  >
-  <mat-sidenav
-    #drawer
-    class="main-nav__drawer"
-    position="end"
-    mode="over"
-    [fixedInViewport]="true"
-    >
+<mat-sidenav-container class="main-nav__overlay" [class.main-nav__overlay--active]="drawer.opened">
+  <mat-sidenav #drawer class="main-nav__drawer" position="end" mode="over" [fixedInViewport]="true">
     <nav class="drawer-nav">
       <button
         mat-icon-button
@@ -56,7 +43,7 @@
         type="button"
         aria-label="Zamknij menu"
         (click)="drawer.close()"
-        >
+      >
         <mat-icon>close</mat-icon>
       </button>
       @for (item of navItems; track item) {
@@ -65,7 +52,7 @@
           routerLinkActive="drawer-nav__link--active"
           (click)="drawer.close()"
           [routerLink]="item.path"
-          >
+        >
           {{ item.label }}
         </a>
       }
@@ -73,4 +60,3 @@
   </mat-sidenav>
   <mat-sidenav-content></mat-sidenav-content>
 </mat-sidenav-container>
-

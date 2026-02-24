@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-type PageData = {
+interface PageData {
   title: string;
   description: string;
-};
+}
 
 @Component({
   selector: 'app-simple-page',
@@ -34,11 +34,10 @@ type PageData = {
         line-height: 1.7;
         max-width: 720px;
       }
-    `
-  ]
+    `,
+  ],
 })
 export class SimplePageComponent {
   private readonly route = inject(ActivatedRoute);
   readonly data = this.route.snapshot.data as PageData;
 }
-

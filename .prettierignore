@@ -1,0 +1,17 @@
+# dependencies / build
+node_modules
+dist
+coverage
+.tmp
+.angular
+.cache
+
+# generated
+**/*.min.*
+**/*.map
+**/*.d.ts
+
+# package manager locks
+package-lock.json
+pnpm-lock.yaml
+yarn.lock

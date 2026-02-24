@@ -21,18 +21,11 @@
     "module": "ES2022",
     "baseUrl": "./",
     "paths": {
-      "@app/*": [
-        "src/app/*"
-      ],
-      "@admin/*": [
-        "src/app/features/admin/*"
-      ],
-      "@pages/*": [
-        "src/app/features/pages/*"
-      ],
-      "@landing/*": [
-        "src/app/features/landing/*"
-      ]
+      "@app/*": ["src/app/*"],
+      "@admin/*": ["src/app/features/admin/*"],
+      "@pages/*": ["src/app/features/pages/*"],
+      "@landing/*": ["src/app/features/landing/*"],
+      "@core/*": ["src/app/core/*"]
     }
   },
   "angularCompilerOptions": {
